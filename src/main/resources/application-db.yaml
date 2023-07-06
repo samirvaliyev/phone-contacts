@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: &connectionUrl jdbc:mysql://${DB_CONNECTION_IP:localhost}:${DB_CONNECTION_PORT:3306}/phone_contacts?allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+    username: &username ${DB_CONNECTION_USERNAME:root}
+    password: &password ${DB_CONNECTION_PASSWORD:password}
+  jpa:
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 5788

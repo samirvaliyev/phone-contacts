@@ -1,0 +1,4 @@
+spring:
+  security:
+     secretJwt: aGVsbG9oZGJzamRrd2plaDJmY3ZiaG5odnhoc3V3aGRpd2pkaXd2ZHd2c3lmdzUyeWV2ZGd2ZGhzdnhoc2Nuc3h4bXN4bQ==
+     issuerToken: Samir Valiyev
