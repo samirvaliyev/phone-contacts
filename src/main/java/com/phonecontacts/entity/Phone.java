@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+/*eger ishlese contact ichindeki list'ler sil*/
 @Data
 @Entity
 @Builder

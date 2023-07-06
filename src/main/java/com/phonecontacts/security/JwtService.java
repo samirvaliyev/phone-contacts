@@ -31,15 +31,15 @@ public class JwtService {
     public String generateAccessToken(final User user) {
         final Map<String, Long> claimsMap = new HashMap<>();
         claimsMap.put("uid", user.getId());
+        claimsMap.put("rid", user.getRole().getId());
         return createToken(claimsMap, user.getEmail());
     }
 
     private String createToken(final Map<String, Long> claimsMap,
                                final String subject) {
         Instant now = Instant.now();
-        //token expire time 15 minute
         Instant expirationTime =
-                now.plus(15,
+                now.plus(20,
                         ChronoUnit.MINUTES);
         return Jwts
                 .builder()
@@ -73,6 +73,13 @@ public class JwtService {
     private UUID extractUserId(final String token) {
         return extractClaim(token, claims ->
                 UUID.fromString((String) claims.get("uid")));
+    }
+
+    /*token ichindeki roleId.
+    * Bununla RoleName elde etmek olar*/
+    private UUID extractRoleId(final String token) {
+        return extractClaim(token, claims ->
+                UUID.fromString((String) claims.get("rid")));
     }
 
     //GET EMAIL

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
+
 @Data
 @Entity
 @Builder
@@ -21,4 +23,12 @@ public class Contact {
 
     @Column(name = "contact_name")
     String contactName;
+
+    @ElementCollection(targetClass = String.class)
+    @JoinTable(name = "contact_emails")
+    List<String> emails;
+
+    @ElementCollection(targetClass = String.class)
+    @JoinTable(name = "contact_phones")
+    List<String> phones;
 }

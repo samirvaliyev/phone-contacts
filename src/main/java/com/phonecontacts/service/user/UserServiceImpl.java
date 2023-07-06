@@ -1,11 +1,12 @@
 package com.phonecontacts.service.user;
 
-import com.phonecontacts.dto.UserRequestDto;
-import com.phonecontacts.dto.UserResponseDto;
+import com.phonecontacts.dto.user.UserRequestDto;
+import com.phonecontacts.dto.user.UserResponseDto;
 import com.phonecontacts.entity.User;
 import com.phonecontacts.entity.UserRole;
+import com.phonecontacts.exception.UserAlreadyExistsException;
 import com.phonecontacts.repository.UserRepository;
-import com.phonecontacts.security.JwtService;
+import com.phonecontacts.security.role.RoleEnum;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,25 +17,31 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private final ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
-    private final JwtService jwtService;
+    private final ModelMapper modelMapper;
 
     @Override
     public UserResponseDto signUp(UserRequestDto requestDto) {
-        //exists user
+        alreadyTakenEmail(requestDto.getEmail());
+        UserRole roleBuilder = UserRole.builder()
+                .name(RoleEnum.USER.name())
+                .build();
         User userBuilder = User.builder()
                 .name(requestDto.getName())
                 .address(requestDto.getAddress())
                 .email(requestDto.getEmail())
                 .password(passwordEncoder.encode(requestDto.getPassword()))
-                .role(new UserRole())//refactore this line
+                .role(roleBuilder)
                 .build();
         userRepository.save(userBuilder);
-        final String token = jwtService
-                .generateAccessToken(userBuilder);
-        return UserResponseDto.builder()
-                .accessToken(token)
-                .build();
+        return modelMapper.map(userBuilder, UserResponseDto.class);
+    }
+
+    private void alreadyTakenEmail(final String email) {
+        final boolean exists = userRepository
+                .existsByEmail(email);
+        if (exists) {
+            throw new UserAlreadyExistsException();
+        }
     }
 }

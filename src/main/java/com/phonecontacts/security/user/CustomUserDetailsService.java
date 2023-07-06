@@ -21,9 +21,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDto loadUserByUsername(final String email) throws UsernameNotFoundException {
-        User user = userRepository
-                .findByEmail(email)
-                .orElseThrow(UserNotFoundException::new);
+        User user = userRepository.findByEmail(email);
+        if (user.getEmail().isEmpty()) {
+            throw new UserNotFoundException();
+        }
         return convertUser(user);
     }
 

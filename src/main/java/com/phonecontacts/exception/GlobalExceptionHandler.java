@@ -14,6 +14,22 @@ import java.time.LocalDateTime;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler(ContactNotFoundException.class)
+    public ResponseEntity<ErrorResponseResource> handleContactNotFoundException(ContactNotFoundException ex) {
+        ErrorResponseResource exception = new ErrorResponseResource(Errors.CONTACT_NOT_FOUND.name(),
+                ex.getLocalizedMessage(), LocalDateTime.now().toString());
+        log.error("Contact not found exception   {}", exception);
+        return new ResponseEntity<>(exception, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponseResource> handleUserAlreadyExistsException(UserAlreadyExistsException ex) {
+        ErrorResponseResource exception = new ErrorResponseResource(Errors.USER_ALREADY_EXISTS.name(),
+                ex.getLocalizedMessage(), LocalDateTime.now().toString());
+        log.error("User already exists exception   {}", exception);
+        return new ResponseEntity<>(exception, HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<ErrorResponseResource> handleUserNotFoundException(UserNotFoundException ex) {
         ErrorResponseResource exception = new ErrorResponseResource(Errors.USER_NOT_FOUND.name(),

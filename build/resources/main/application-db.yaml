@@ -1,31 +1,31 @@
-#spring:
-#  datasource:
-#    url: &connectionUrl jdbc:mysql://${DB_CONNECTION_IP:localhost}:${DB_CONNECTION_PORT:3306}/phone_contacts?allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
-#    username: &username ${DB_CONNECTION_USERNAME:root}
-#    password: &password ${DB_CONNECTION_PASSWORD:password}
-#  jpa:
-#    show-sql: true
-#    generate-ddl: false
-#    hibernate:
-#      ddl-auto: validate
-#    properties:
-#      hibernate:
-#        format_sql: true
-
-
 spring:
-  h2:
-    console:
-      enabled: true
   datasource:
-    url: jdbc:h2:mem:phones
-    username: Jeyhun
-    password: 54321
-    driver-class-name: org.h2.Driver
+    url: &connectionUrl jdbc:mysql://${DB_CONNECTION_IP:localhost}:${DB_CONNECTION_PORT:3306}/phone_contacts?allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+    username: &username ${DB_CONNECTION_USERNAME:root}
+    password: &password ${DB_CONNECTION_PASSWORD:password}
   jpa:
-    generate-ddl: true
     show-sql: true
-    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+
+
+#spring:
+#  h2:
+#    console:
+#      enabled: true
+#  datasource:
+#    url: jdbc:h2:mem:phones
+#    username: Jeyhun
+#    password: 54321
+#    driver-class-name: org.h2.Driver
+#  jpa:
+#    generate-ddl: true
+#    show-sql: true
+#    database-platform: org.hibernate.dialect.H2Dialect
 
 server:
   port: 5788

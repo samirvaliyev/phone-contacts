@@ -46,6 +46,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeHttpRequests()
                 .requestMatchers("/v1/user/sign-up").permitAll()
+                .requestMatchers("/v1/auth/login").permitAll()
                 .anyRequest().authenticated();
 
         http.authenticationProvider(authenticationProvider());

@@ -1,7 +1,7 @@
 package com.phonecontacts.controller;
 
-import com.phonecontacts.dto.UserRequestDto;
-import com.phonecontacts.dto.UserResponseDto;
+import com.phonecontacts.dto.user.UserRequestDto;
+import com.phonecontacts.dto.user.UserResponseDto;
 import com.phonecontacts.service.user.UserService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,6 @@ public class UserController {
 
     private final UserService userService;
 
-    //register
     @PostMapping("/sign-up")
     public ResponseEntity<UserResponseDto> signUp(@RequestBody UserRequestDto requestDto) {
         log.trace("Create user body {}", requestDto);
