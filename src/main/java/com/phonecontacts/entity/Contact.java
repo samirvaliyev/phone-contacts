@@ -25,10 +25,10 @@ public class Contact {
     String contactName;
 
     @ElementCollection(targetClass = String.class)
-    @JoinTable(name = "contact_emails")
+    @JoinTable(name = "emails")
     List<String> emails;
 
     @ElementCollection(targetClass = String.class)
-    @JoinTable(name = "contact_phones")
+    @JoinTable(name = "phones")
     List<String> phones;
 }

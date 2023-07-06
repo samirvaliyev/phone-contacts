@@ -35,7 +35,7 @@ public class ContactServiceImpl implements ContactService {
                 .findById(id).orElseThrow(ContactNotFoundException::new);
         contactOld.setContactName(updateDto.getContactName());
         contactOld.setEmails(updateDto.getEmails());
-        contactOld.setPhones(contactOld.getPhones());
+        contactOld.setPhones(updateDto.getPhones());
         final Contact contact = contactRepository.save(contactOld);
         return modelMapper.map(contact, ContactUpdateResDto.class);
     }

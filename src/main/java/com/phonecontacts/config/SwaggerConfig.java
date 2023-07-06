@@ -1,17 +1,18 @@
 package com.phonecontacts.config;
 
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.info.Info;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
-
-    /*@Configuration
-public class SwaggerConfig {
-    private static final String CONTACT_MAIL = "info@expressbank.az";
-    private static final String DEV_IT_TEAM = "Expressbank";
-    private static final String SWAGGER_URL = "http://localhost:8081/swagger-ui.html";
-    private static final String TITLE = "MKR-MS";
-    private static final String DESCRIPTION = "MKR-MS";
+    private static final String CONTACT_MAIL = "samirvaliyev@gmail.com";
+    private static final String DEV_IT_TEAM = "AZERBAIJAN";
+    private static final String SWAGGER_URL = "http://localhost:5788/swagger-ui/index.html";
+    private static final String TITLE = "CONTACT-PHONES";
+    private static final String DESCRIPTION = "CONTACT-PHONES";
     private static final String VERSION = "1.0";
 
 
@@ -28,14 +29,8 @@ public class SwaggerConfig {
                         )
                         .version(VERSION));
     }
-    spring:
-  mvc:
-    throwExceptionIfNoHandlerFound: true
+    /*    spring:
+            mvc:
+               throwExceptionIfNoHandlerFound: true*/
 
-        implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
-    implementation group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.1'
-    implementation 'com.sun.xml.ws:jaxws-ri:2.3.6'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.1.0'
-}*/
 }

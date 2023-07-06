@@ -14,6 +14,14 @@ import java.time.LocalDateTime;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler(WrongPasswordException.class)
+    public ResponseEntity<ErrorResponseResource> handleWrongPasswordException(WrongPasswordException ex) {
+        ErrorResponseResource exception = new ErrorResponseResource(Errors.USER_WRONG_PASSWORD.name(),
+                ex.getLocalizedMessage(), LocalDateTime.now().toString());
+        log.error("User password wrong exception  {}", exception);
+        return new ResponseEntity<>(exception, HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(ContactNotFoundException.class)
     public ResponseEntity<ErrorResponseResource> handleContactNotFoundException(ContactNotFoundException ex) {
         ErrorResponseResource exception = new ErrorResponseResource(Errors.CONTACT_NOT_FOUND.name(),

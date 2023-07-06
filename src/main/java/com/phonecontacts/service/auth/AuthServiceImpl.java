@@ -29,7 +29,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     private void checkLoginPassword(LoginRequestDto loginRequestDto, User user) {
-        if (passwordEncoder.matches(loginRequestDto.getPassword(), user.getPassword())) {
+        if (!passwordEncoder.matches(loginRequestDto.getPassword(), user.getPassword())) {
             throw new WrongPasswordException();
         }
     }
