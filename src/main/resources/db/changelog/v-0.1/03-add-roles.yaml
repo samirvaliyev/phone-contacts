@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20230705-03
+      author: samir
+      changes:
+        - insert:
+            tableName: user_roles
+            columns:
+              - column:
+                  name: name
+                  value: 'USER'
+              - column:
+                  name: name
+                  value: 'ADMIN'
+              - column:
+                  name: name
+                  value: 'SUPER_USER'
+              - column:
+                  name: name
+                  value: 'SUPER_ADMIN'

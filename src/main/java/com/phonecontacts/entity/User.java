@@ -37,16 +37,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     String name;
 
-    @Column(name = "address")
+    @Column(name = "address", nullable = false)
     String address;
 
-    @Column(name = "email", unique = true)
+    @Column(name = "email", unique = true, nullable = false)
     String email;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     String password;
 
     @ManyToOne(cascade = CascadeType.ALL)

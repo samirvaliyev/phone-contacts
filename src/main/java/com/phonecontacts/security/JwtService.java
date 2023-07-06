@@ -37,6 +37,7 @@ public class JwtService {
     private String createToken(final Map<String, Long> claimsMap,
                                final String subject) {
         Instant now = Instant.now();
+        //token expire time 15 minute
         Instant expirationTime =
                 now.plus(15,
                         ChronoUnit.MINUTES);

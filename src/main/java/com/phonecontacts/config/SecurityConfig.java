@@ -45,8 +45,7 @@ public class SecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/v1/user/check").permitAll()
-                .requestMatchers("/v1/user/all").permitAll()
+                .requestMatchers("/v1/user/sign-up").permitAll()
                 .anyRequest().authenticated();
 
         http.authenticationProvider(authenticationProvider());
