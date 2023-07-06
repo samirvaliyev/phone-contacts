@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: io.swagger.core.v3:swagger-annotations-jakarta:2.2.9">
+  <library name="Gradle: io.swagger.core.v3:swagger-annotations-jakarta:2.2.9" external-system-id="GRADLE">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.swagger.core.v3/swagger-annotations-jakarta/2.2.9/63d247840bb786dd37edd9dd5f3916aba545b44/swagger-annotations-jakarta-2.2.9.jar!/" />
     </CLASSES>

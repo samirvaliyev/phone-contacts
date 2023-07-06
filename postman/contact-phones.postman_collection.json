@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "5b70923c-c380-49f4-9804-1d109a1e0bf8",
+		"name": "contact-phones",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13775647"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\":\"xxx\",\n        \"email\": \"xxx@xxx.com\",\n        \"address\": \"Azerbaijan\",\n        \"password\": \"xxx123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5788/v1/user/sign-up",
+							"host": [
+								"localhost"
+							],
+							"port": "5788",
+							"path": [
+								"v1",
+								"user",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"email\": \"xxxx@xxxx.com\",\n        \"password\": \"xxxx123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5788/v1/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "5788",
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contact",
+			"item": [
+				{
+					"name": "create-contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"contactName\": \"xxxx\",\n        \"emails\": [\n                \"xxxxx@xxxx.com\",\n                \"yyyyx@yyyy.com\"\n        ],\n        \"phones\": [\n                \"+380939333333\",\n                \"+380939333334\"\n        ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5788/v1/contact",
+							"host": [
+								"localhost"
+							],
+							"port": "5788",
+							"path": [
+								"v1",
+								"contact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-contact",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsInJpZCI6MSwic3ViIjoidGVzdEB5YWhvby5jb20iLCJpYXQiOjE2ODg1ODczNTIsImV4cCI6MTY4ODU4ODU1MiwiaXNzIjoiU2FtaXIgVmFsaXlldiJ9.S1J0DNrLs6XWn3VHiBUexCmpXZiPQgh0yD6Kaxbbq4E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"contactName\": \"xxxy\",\n        \"emails\": [\n                \"xxxxy@xxxx.com\"\n        ],\n        \"phones\": [\n                \"+380939333331\"\n        ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5788/v1/contact/2",
+							"host": [
+								"localhost"
+							],
+							"port": "5788",
+							"path": [
+								"v1",
+								"contact",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all-contacts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5788/v1/contact/all",
+							"host": [
+								"localhost"
+							],
+							"port": "5788",
+							"path": [
+								"v1",
+								"contact",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-contact",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsInJpZCI6MSwic3ViIjoidGVzdEB5YWhvby5jb20iLCJpYXQiOjE2ODg1ODczNTIsImV4cCI6MTY4ODU4ODU1MiwiaXNzIjoiU2FtaXIgVmFsaXlldiJ9.S1J0DNrLs6XWn3VHiBUexCmpXZiPQgh0yD6Kaxbbq4E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5788/v1/contact/delete/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5788",
+							"path": [
+								"v1",
+								"contact",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: org.xmlunit:xmlunit-core:2.9.0">
+  <library name="Gradle: org.xmlunit:xmlunit-core:2.9.0" external-system-id="GRADLE">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.xmlunit/xmlunit-core/2.9.0/8959725d90eecfee28acd7110e2bb8460285d876/xmlunit-core-2.9.0.jar!/" />
     </CLASSES>
