@@ -1,5 +1,8 @@
 package com.phonecontacts.dto.contact;
 
+import com.phonecontacts.util.ValidEmail;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -12,7 +15,15 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ContactRequestDto {
 
+    @NotNull
+    @NotBlank(message = "The contact name is required.")
     String contactName;
+
+    @NotNull
+    @NotBlank(message = "The emails is required.")
     List<String> emails;
+
+    @NotNull
+    @NotBlank(message = "The phones is required.")
     List<String> phones;
 }

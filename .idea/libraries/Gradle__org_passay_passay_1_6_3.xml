@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.passay:passay:1.6.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.passay/passay/1.6.3/bae4754c87297f5600e4071b2596c0b6625cf92b/passay-1.6.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.passay/passay/1.6.3/1c83103bdb2c1236c3b8b01246a76d31912c4863/passay-1.6.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

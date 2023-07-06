@@ -15,7 +15,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 import java.util.function.Function;
 
 @Service
@@ -65,21 +64,28 @@ public class JwtService {
     }
 
     //GET USER ID
-    public UUID prepareTokenWithUser(final String token) {
+    //don't use now
+    public Long prepareTokenWithUser(final String token) {
         final String accessTokenForUserId = token.split(" ")[1].trim();
         return extractUserId(accessTokenForUserId);
     }
 
-    private UUID extractUserId(final String token) {
+    private Long extractUserId(final String token) {
         return extractClaim(token, claims ->
-                UUID.fromString((String) claims.get("uid")));
+                (Long) claims.get("uid"));
     }
 
-    /*token ichindeki roleId.
-    * Bununla RoleName elde etmek olar*/
-    private UUID extractRoleId(final String token) {
-        return extractClaim(token, claims ->
-                UUID.fromString((String) claims.get("rid")));
+    //GET ROLE ID
+    //use now
+    public Integer prepareTokenWithRole(final String token) {
+        final String accessTokenForRoleId = token.split(" ")[1].trim();
+        return extractRoleId(accessTokenForRoleId);
+    }
+
+
+    private Integer extractRoleId(final String token) {
+        return (Integer) extractClaim(token, claims ->
+                claims.get("rid"));
     }
 
     //GET EMAIL

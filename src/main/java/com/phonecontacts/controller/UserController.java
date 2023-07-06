@@ -3,6 +3,7 @@ package com.phonecontacts.controller;
 import com.phonecontacts.dto.user.UserRequestDto;
 import com.phonecontacts.dto.user.UserResponseDto;
 import com.phonecontacts.service.user.UserService;
+import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +24,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/sign-up")
-    public ResponseEntity<UserResponseDto> signUp(@RequestBody UserRequestDto requestDto) {
+    public ResponseEntity<UserResponseDto> signUp(@RequestBody @Valid UserRequestDto requestDto) {
         log.trace("Create user body {}", requestDto);
         return new ResponseEntity<>(userService.signUp(requestDto), HttpStatus.CREATED);
     }
