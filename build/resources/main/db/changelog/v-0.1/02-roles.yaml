@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: 20230705-02
-      author: samirvaliyev
+      author: samir
       changes:
         - createTable:
             tableName: user_roles
